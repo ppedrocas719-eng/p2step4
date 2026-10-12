@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS-MART 99 ★ REAL CONTENT EDITION</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #000022;
+            background-image: radial-gradient(#111144 1px, transparent 0);
+            background-size: 12px 12px;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 4px;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .main-frame {
+            width: 100%;
+            max-width: 480px;
+            background: #000033;
+            border: 3px solid #00ffff;
+            box-shadow: 0 0 15px #00ffff;
+            padding: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-banner {
+            background: #ff0000;
+            color: #ffff00;
+            font-weight: bold;
+            font-size: 0.68rem;
+            padding: 4px;
+            text-align: center;
+            border: 2px solid #ffff00;
+            margin-bottom: 6px;
+            cursor: pointer;
+            word-break: break-word;
+        }
+
+        .header { text-align: center; margin-bottom: 6px; }
+        .logo-title {
+            color: #ff00ff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px #00ffff;
+            cursor: pointer;
+            user-select: none;
+            word-break: break-word;
+        }
+
+        .sub-header { font-size: 0.68rem; color: #ffff00; margin-top: 2px; }
+        .counter-box {
+            display: inline-block;
+            background: #000;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 2px 6px;
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            margin-top: 4px;
+            cursor: pointer;
+        }
+
+        .rainbow-line {
+            height: 4px;
+            background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet);
+            margin: 6px 0;
+        }
+
+        .nav-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+            margin-bottom: 4px;
+        }
+
+        .nav-btn {
+            background: #c0c0c0;
+            color: #000;
+            border-top: 2px solid #fff;
+            border-left: 2px solid #fff;
+            border-right: 2px solid #404040;
+            border-bottom: 2px solid #404040;
+            padding: 5px 4px;
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 0.65rem;
+            cursor: pointer;
+            text-align: center;
+            flex: 1 1 22%;
+            min-width: 70px;
+            word-break: break-word;
+        }
+
+        .nav-btn.active {
+            background: #a0a0a0;
+            border-top: 2px solid #404040;
+            border-left: 2px solid #404040;
+            border-right: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            color: #0000aa;
+        }
+
+        .tab-pane {
+            display: none;
+            background: #000044;
+            border: 2px solid #00ffff;
+            padding: 8px;
+            margin-top: 4px;
+            width: 100%;
+            max-height: 520px;
+            overflow-y: auto;
+        }
+
+        .tab-pane.active { display: block; }
+
+        .section-title {
+            color: #ffff00;
+            text-align: center;
+            font-size: 0.8rem;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            border-bottom: 1px dashed #00ffff;
+            padding-bottom: 4px;
+            word-break: break-word;
+        }
+
+        .card-item {
+            background: #000022;
+            border: 1px solid #0088ff;
+            padding: 6px;
+            margin-bottom: 6px;
+            text-align: center;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        .ascii-art {
+            color: #00ffff;
+            font-size: 0.6rem;
+            white-space: pre;
+            line-height: 1;
+            margin: 3px 0;
+            overflow-x: auto;
+        }
+
+        .item-title { color: #ffff00; font-size: 0.8rem; font-weight: bold; }
+        .item-desc { font-size: 0.68rem; color: #cccccc; margin: 3px 0; word-break: break-word; overflow-wrap: anywhere; }
+        .price { color: #00ff00; font-weight: bold; font-size: 0.75rem; }
+
+        .entry-box {
+            background: #000011;
+            border-left: 3px solid #ff00ff;
+            padding: 5px;
+            margin-bottom: 6px;
+            font-size: 0.68rem;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+        .author { color: #ff00ff; font-weight: bold; }
+
+        .tech-box {
+            background: #000000;
+            border: 1px solid #00ff00;
+            padding: 6px;
+            margin-bottom: 6px;
+            font-size: 0.68rem;
+            width: 100%;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        textarea, select, input[type="text"] {
+            width: 100%;
+            max-width: 100%;
+            background: #000022;
+            border: 1px solid #00ffff;
+            color: #00ff00;
+            padding: 5px;
+            font-family: monospace;
+            font-size: 0.72rem;
+            margin: 3px 0 5px 0;
+            outline: none;
+            display: block;
+            word-break: break-all;
+        }
+
+        button.retro-btn {
+            width: 100%;
+            background: #c0c0c0;
+            color: #000;
+            border-top: 2px solid #fff;
+            border-left: 2px solid #fff;
+            border-right: 2px solid #404040;
+            border-bottom: 2px solid #404040;
+            padding: 6px;
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 0.72rem;
+            cursor: pointer;
+        }
+
+        .out-box {
+            margin-top: 5px;
+            padding: 5px;
+            background: #000;
+            border: 1px dashed #00ff00;
+            color: #00ff00;
+            font-size: 0.68rem;
+            display: none;
+            word-break: break-all;
+            overflow-wrap: anywhere;
+        }
+
+        .custom-modal {
+            display: none;
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            width: 90%;
+            background: #000;
+            border: 2px solid #ff00ff;
+            box-shadow: 0 0 20px #ff00ff;
+            padding: 10px;
+            z-index: 999;
+            color: #00ff00;
+            font-size: 0.7rem;
+            word-break: break-word;
+        }
+
+        .modal-header {
+            color: #ff00ff;
+            font-weight: bold;
+            margin-bottom: 6px;
+            border-bottom: 1px solid #ff00ff;
+            padding-bottom: 3px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .close-btn { color: #ff0000; cursor: pointer; font-weight: bold; }
+        .err { border-color: #ff0000 !important; color: #ff0000 !important; }
+    </style>
+</head>
+<body>
+
+<div class="main-frame">
+    <div id="retroModal" class="custom-modal">
+        <div class="modal-header">
+            <span id="modalTitle">[SISTEMA INTEL]</span>
+            <span class="close-btn" onclick="closeModal()">[X]</span>
+        </div>
+        <div id="modalBody">...</div>
+    </div>
+
+    <div class="marquee-banner" id="bannerClick">
+        ★ REDE CLANDESTINA NEXUS ★ DADOS REALMENTE ÚNICOS NÍVEL 5 ★ (CLIQUE)
+    </div>
+
+    <div class="header">
+        <div class="logo-title" id="titleClick">🤖 NEXUS-MART 99 🤖</div>
+        <div class="sub-header">🚧 OFICINA CLANDESTINA 🚧 · Visitante nº</div>
+        <div class="counter-box" id="counterClick">0009942</div>
+    </div>
+
+    <div class="rainbow-line"></div>
+
+    <div class="nav-grid">
+        <button class="nav-btn active" onclick="tab(0)">[1] LOJA</button>
+        <button class="nav-btn" onclick="tab(1)">[2] MURAL</button>
+        <button class="nav-btn" onclick="tab(2)">[3] LIVROS</button>
+        <button class="nav-btn" onclick="tab(3)">[4] LAUDOS</button>
+        <button class="nav-btn" onclick="tab(4)">[5] RÁDIO</button>
+        <button class="nav-btn" onclick="tab(5)">[6] ARQUIVO</button>
+        <button class="nav-btn" onclick="tab(6)">[7] REDE</button>
+        <button class="nav-btn" onclick="tab(7)">[8] LAB TÉC</button>
+    </div>
+
+    <!-- ABA 0: CATÁLOGO DE PRODUTOS -->
+    <div class="tab-pane active" id="pane0">
+        <div class="section-title">★ CATÁLOGO DE DROIDS E PEÇAS ★</div>
+        <div class="card-item"><div class="item-title">DROID MK-1 «SENTINELA»</div><div class="item-desc">Modelo de vigilância urbana com sensor infravermelho de longo alcance.</div><div class="price">R$ 1.500,00</div></div>
+        <div class="card-item" style="border-color:#ff00ff; background:#110022;"><div class="item-title" style="color:#ff00ff;">CÉREBRO POSITRÔNICO V-9</div><div class="item-desc">Processador quântico retirado do laboratório. Criptografia XOR 0x55 gravada na placa.</div><div class="price" style="color:#ff00ff;">PREÇO: [BLOQUEADO]</div></div>
+        <div class="card-item"><div class="item-title">UNIDADE OMEGA-X</div><div class="item-desc">Androide tático pericial. Trava biimétrica protegida por Cifra de Livro.</div><div class="price">R$ 99.000,00</div></div>
+        <div class="card-item"><div class="item-title">ZB-3 «INTÉRPRETE»</div><div class="item-desc">Módulo tradutor em tempo real para frequências de rádio antigas.</div><div class="price">R$ 3.400,00</div></div>
+        <div class="card-item"><div class="item-title">CHIP DE MEMÓRIA MEMEX-88</div><div class="item-desc">Contém arquivos pessoais da vítima salvos em formato bruto.</div><div class="price">R$ 5.900,00</div></div>
+        <div class="card-item"><div class="item-title">NÚCLEO QUANTUM OVERRIDE</div><div class="item-desc">Componente exigido para a liberação total do terminal de emergência.</div><div class="price">R$ 45.000,00</div></div>
+        <div class="card-item"><div class="item-title">VISOR TÁTICO HUD-200</div><div class="item-desc">Lente de realidade aumentada com scanner de códigos Morse no ambiente.</div><div class="price">R$ 800,00</div></div>
+        <div class="card-item"><div class="item-title">SERVO-MOTOR A22</div><div class="item-desc">Motor articulado resgatado dos destroços da cabana.</div><div class="price">R$ 450,00</div></div>
+        <div class="card-item"><div class="item-title">RECEPTOR DE SINAL UHF</div><div class="item-desc">Antena de alta sensibilidade para interceptação de frequências 440.9 MHz.</div><div class="price">R$ 1.100,00</div></div>
+        <div class="card-item"><div class="item-title">BATERIA DE LÍTIO CR-99</div><div class="item-desc">Bateria militar de longa duração usada em droids autônomos.</div><div class="price">R$ 350,00</div></div>
+    </div>
+
+    <!-- ABA 1: MURAL DE DEPOIMENTOS E CONVERSAS ÚNICAS -->
+    <div class="tab-pane" id="pane1">
+        <div class="section-title">📜 CHATS E CONVERSAS VAZADAS ★</div>
+        <div class="entry-box"><div class="author">👤 @Vetor_Zero (12:41)</div><p>"Alguém viu o código Hex no motor do Droid V-9? Ele está formatado em octetos hifenizados."</p></div>
+        <div class="entry-box"><div class="author">👤 @Sombra_Pericial (12:43)</div><p>"Apliquem a operação XOR com 0x55 na string Hex (13-07-10-14-10-11-13) para descobrir a segunda palavra."</p></div>
+        <div class="entry-box"><div class="author">👤 @Agente_K (12:45)</div><p>"O fragmento Base64 que vazou do diário é 'U0FOVE9TXzE4ODk='. Joguei no decodificador e deu a data!"</p></div>
+        <div class="entry-box"><div class="author">👤 @Dante_01 (12:48)</div><p>"A transmissão de rádio na frequência 440.9 MHz está mandando '-.-. .- ... ---' em Morse repetidamente."</p></div>
+        <div class="entry-box"><div class="author">👤 @LUCIFER_1889 (12:50)</div><p>"A sequência exata do terminal mestre é: MORSE_TXT:HEX_XOR:ASIMOV:LOG_SENHA."</p></div>
+        <div class="entry-box"><div class="author">👤 @Freeman_Dad (12:52)</div><p>"Eles queimaram o rosto do corpo com ácido para esconder o parentesco com a família Santos."</p></div>
+        <div class="entry-box"><div class="author">👤 @Vetor_Zero (12:55)</div><p>"Cliquem 5 vezes no título da loja no topo da tela para liberar a chave do XOR."</p></div>
+        <div class="entry-box"><div class="author">👤 @Sombra_Pericial (12:58)</div><p>"A 6ª palavra da Primeira Lei de Asimov em inglês é a resposta da terceira lacuna do terminal!"</p></div>
+        <div class="entry-box"><div class="author">👤 @Agente_K (13:01)</div><p>"Cliquem no número verde do contador de visitantes '0009942' para pegar a senha do log do Arcanjo."</p></div>
+        <div class="entry-box"><div class="author">👤 @Dante_01 (13:05)</div><p>"O Arcanjo apagou os registros de 1889, mas esqueceram do terminal na aba 8."</p></div>
+    </div>
+
+    <!-- ABA 2: BIBLIOTECA COM OBRAS E PISTAS ESPECÍFICAS -->
+    <div class="tab-pane" id="pane2">
+        <div class="section-title">📚 BIBLIOTECA DE PESQUISA LITERÁRIA ★</div>
+        <div class="tech-box"><strong style="color:#ffff00;">1. I, Robot (Isaac Asimov):</strong><br>Consulte a Primeira Lei da Robótica no texto original em inglês (*"A robot may not injure a human being..."*). Extraia a <strong>6ª palavra</strong> exata (INJURY).</div>
+        <div class="tech-box"><strong style="color:#ffff00;">2. Dom Casmurro (Machado de Assis):</strong><br>Capítulo 100 (*"A fita verde"*). Localize a 3ª palavra do primeiro parágrafo do capítulo.</div>
+        <div class="tech-box"><strong style="color:#ffff00;">3. Frankenstein (Mary Shelley):</strong><br>Chapter 4 do EBook Gutenberg #84. Qual é a primeira palavra do capítulo no texto em inglês?</div>
+        <div class="tech-box"><strong style="color:#ffff00;">4. Neuromancer (William Gibson):</strong><br>Chapter 1. Descubra qual é a cor com que o autor compara o céu sobre o porto na primeira linha do livro.</div>
+        <div class="tech-box"><strong style="color:#ffff00;">5. R.U.R. (Karel Čapek - 1920):</strong><br>Nome da primeira fábrica de robôs fundada na ilha por Rossum na peça original.</div>
+        <div class="tech-box"><strong style="color:#ffff00;">6. A Divina Comédia: Inferno (Dante Alighieri):</strong><br>Canto XXXIV (o último canto). Localize a última palavra do último verso em italiano (*"reveder le..."*).</div>
+        <div class="tech-box"><strong style="color:#ffff00;">7. L'Homme qui rit (Victor Hugo):</strong><br>Préface em francês original. Primeira palavra escrita pelo autor.</div>
+        <div class="tech-box"><strong style="color:#ffff00;">8. A Guerra dos Mundos (H.G. Wells):</strong><br>Capítulo 1. Número exato de parágrafos da introdução sobre os marcianos.</div>
+    </div>
+
+    <!-- ABA 3: LAUDOS INDIVIDUAIS E EXAMES FORENSES -->
+    <div class="tab-pane" id="pane3">
+        <div class="section-title">📋 LAUDOS E PERÍCIAS FORENSES ★</div>
+        <div class="tech-box"><strong>Laudo #884-A (Necropsia Principal):</strong> Vítima masculina, idade aproximada 35 anos. Face completamente corroída por ácido industrial.</div>
+        <div class="tech-box"><strong>Laudo #884-B (Sequenciamento de DNA):</strong> Amostra extraída com ruído de padding nas posições ímpares:<br><span style="color:#ffff00;">FF-53-AA-41-BB-4E-CC-54-DD-4F-EE-53</span><br>* Filtre apenas as posições pares para obter ASCII do sobrenome da vítima (SANTOS).</div>
+        <div class="tech-box"><strong>Laudo #884-C (Exame Balístico):</strong> Projétil calibre .45 extraído da parede do laboratório. Estriamento compatível com arma da marca Arcanjo.</div>
+        <div class="tech-box"><strong>Laudo #884-D (Análise de Solos):</strong> Resíduos vegetais encontrados no calçado apontam para a zona sul de Brasília.</div>
+        <div class="tech-box"><strong>Laudo #884-E (Exame Toxicológico):</strong> Presença de substâncias sintéticas usadas na preservação de tecidos de androides.</div>
+        <div class="tech-box"><strong>Laudo #884-F (Perícia em Vestuário):</strong> Jaqueta com etiqueta rasgada onde se lê apenas 'SANTOS_1889'.</div>
+    </div>
+
+    <!-- ABA 4: ESCUTA DE RÁDIO -->
+    <div class="tab-pane" id="pane4">
+        <div class="section-title">📡 TRANSCRIÇÕES DE RÁDIO E INTERCEPTAÇÕES ★</div>
+        <div class="tech-box"><strong>Canal 440.9 MHz (Principal):</strong> Repetição contínua em código Morse:<br><code>-.-. .- ... ---</code> (Traduzido: CASO).</div>
+        <div class="tech-box"><strong>Canal 889.1 MHz (Criptografado):</strong> Sinal sintetizado tocando a frase: <em>"Freeman é a minha família... saudades de como era antes."</em></div>
+        <div class="tech-box"><strong>Canal 102.5 MHz (Ruído de Fundo):</strong> Interferência eletromagnética proveniente do gerador de pulso da loja.</div>
+        <div class="tech-box"><strong>Canal 550.0 MHz (Proxy Fantasma):</strong> Pacotes de dados trafegando em Base64 criptografado.</div>
+    </div>
+
+    <!-- ABA 5: ARQUIVOS CENSURADOS DO ARCANJO -->
+    <div class="tab-pane" id="pane5">
+        <div class="section-title">📂 ARQUIVO CENSURADO // CONFIDENCIAL ★</div>
+        <div class="tech-box"><strong style="color:#ff0055;">Documento #A89-01:</strong> Registro do experimento de transferência de consciência realizado em 1889 pela família Santos.</div>
+        <div class="tech-box"><strong style="color:#ff0055;">Documento #A89-02:</strong> Relatório de eliminação de provas assinado pela entidade conhecida como Arcanjo.</div>
+        <div class="tech-box"><strong style="color:#ff0055;">Documento #A89-03:</strong> Ordem de despejo do robô OMEGA-X na ravina da zona sul.</div>
+        <div class="tech-box"><strong style="color:#ff0055;">Documento #A89-04:</strong> Esquema do circuito integrado com máscara XOR 0x55 de proteção mestre.</div>
+    </div>
+
+    <!-- ABA 6: STATUS E REGISTROS DE SERVIDOR -->
+    <div class="tab-pane" id="pane6">
+        <div class="section-title">⚙️ DIAGNÓSTICO DE REDE E SERVIDOR ★</div>
+        <p style="font-size:0.68rem; color:#00ff00;">> SERVIDOR CENTRAL: ONLINE (Porta 8158)</p>
+        <p style="font-size:0.68rem; color:#00ff00;">> PROTOCOLO OVERRIDE: AGUARDANDO AUTENTICAÇÃO</p>
+        <div class="tech-box" style="margin-top:6px;"><strong style="color:#00ff00;">Daemon Log #01:</strong> Tentativa de login no terminal da aba 8 registrada.</div>
+        <div class="tech-box"><strong style="color:#00ff00;">Daemon Log #02:</strong> Sinal do contador de visitantes ativo e respondendo ao clique.</div>
+    </div>
+
+    <!-- ABA 7: LAB TÉCNICO E TERMINAL -->
+    <div class="tab-pane" id="pane7">
+        <div class="section-title">🔧 DECODIFICADOR E TERMINAL MESTRE ★</div>
+        <div class="tech-box">
+            <label>ALGORITMO:</label>
+            <select id="algo">
+                <option value="b64_dec">Base64 (Decode)</option>
+                <option value="b64_enc">Base64 (Encode)</option>
+                <option value="morse">Código Morse (Ex: .- -...)</option>
+                <option value="rot13">ROT13 / Cifra de César</option>
+                <option value="xor">Hexadecimal XOR (0x55)</option>
+                <option value="vig">Cifra de Vigenère</option>
+                <option value="atb">Cifra Atbash</option>
+            </select>
+
+            <label>ENTRADA DE DADOS:</label>
+            <textarea id="inData" rows="2" placeholder="Cole os dados aqui..."></textarea>
+
+            <label>CHAVE (SE EXIGIDO):</label>
+            <input type="text" id="inKey" placeholder="EX: CHAVE">
+
+            <button class="retro-btn" onclick="processar()">PROCESSAR DADOS</button>
+            <div id="outResult" class="out-box"></div>
+        </div>
+
+        <div class="tech-box" style="border-color:#ff00ff;">
+            <strong style="color:#ff00ff;">TERMINAL DE AUTENTICAÇÃO MESTRE:</strong>
+            <p style="margin:4px 0;">Formato: <code>MORSE_TXT:HEX_XOR:ASIMOV:LOG_SENHA</code></p>
+            
+            <input type="text" id="passInput" placeholder="EX: CASO:FREEMAN:INJURY:FREEMAN_1889">
+            <button class="retro-btn" style="background:#ff00ff; color:#fff;" onclick="validar()">VALIDAR ENTRADA MESTRE</button>
+            <div id="termResult" class="out-box"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(title, text) {
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalBody').innerHTML = text;
+        document.getElementById('retroModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('retroModal').style.display = 'none';
+    }
+
+    document.getElementById('bannerClick').addEventListener('click', function() {
+        openModal('FREQUÊNCIA INTERCEPTADA', 'Áudio gravado do Arcanjo:<br><br><span style="color:#ffff00;">"Eles acham que apagaram os Santos da história... mas o sinal Morse (-.-. .- ... ---) não mente sobre o CASO."</span>');
+    });
+
+    let titleClicks = 0;
+    document.getElementById('titleClick').addEventListener('click', function() {
+        titleClicks++;
+        if (titleClicks >= 5) {
+            openModal('OVERRIDE CONSOLE ENCONTRADO', 'O Arcanjo deixou um trecho gravado na memória:<br><br><span style="color:#ffff00;">XOR_KEY = 0x55</span>');
+            titleClicks = 0;
+        } else {
+            openModal('SISTEMA NEXUS', 'Tentativas de acesso ao console mestre: ' + titleClicks + '/5');
+        }
+    });
+
+    document.getElementById('counterClick').addEventListener('click', function() {
+        openModal('MEMÓRIA DO ARCANJO', 'Log Privado recuperado:<br><br><span style="color:#ffff00;">SENHA_LOG = FREEMAN_1889<br>"Freeman é a minha família... saudades de como era antes de tudo isso acontecer."</span>');
+    });
+
+    function tab(idx) {
+        for(let i=0; i<8; i++) {
+            document.getElementById('pane' + i).classList.remove('active');
+        }
+        document.getElementById('pane' + idx).classList.add('active');
+        
+        const btns = document.querySelectorAll('.nav-btn');
+        btns.forEach((b, i) => b.classList.toggle('active', i === idx));
+    }
+
+    const morseMap = {
+        '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E',
+        '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J',
+        '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O',
+        '.--.': 'P', '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T',
+        '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X', '-.--': 'Y',
+        '--..': 'Z', '-----': '0', '.----': '1', '..---': '2', '...--': '3',
+        '....-': '4', '.....': '5', '-....': '6', '--...': '7', '---..': '8',
+        '----.': '9'
+    };
+
+    function processar() {
+        const algo = document.getElementById('algo').value;
+        const txt = document.getElementById('inData').value.trim();
+        const key = document.getElementById('inKey').value.trim().toUpperCase();
+        const out = document.getElementById('outResult');
+
+        out.style.display = 'block';
+        out.classList.remove('err');
+
+        try {
+            if (algo === 'b64_dec') { out.innerHTML = "BASE64: <strong>" + atob(txt) + "</strong>"; }
+            else if (algo === 'b64_enc') { out.innerHTML = "BASE64: <strong>" + btoa(txt) + "</strong>"; }
+            else if (algo === 'morse') {
+                let parts = txt.split(' ');
+                let res = parts.map(code => morseMap[code] || '?').join('');
+                out.innerHTML = "MORSE: <strong>" + res + "</strong>";
+            } else if (algo === 'rot13') {
+                let res = txt.replace(/[a-zA-Z]/g, function(c){
+                    return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
+                });
+                out.innerHTML = "ROT13: <strong>" + res.toUpperCase() + "</strong>";
+            } else if (algo === 'xor') {
+                let parts = txt.toUpperCase().split(/[- ]+/);
+                let res = "";
+                for (let i = 0; i < parts.length; i++) {
+                    let val = parseInt(parts[i], 16);
+                    if (!isNaN(val)) { res += String.fromCharCode(val ^ 0x55); }
+                }
+                out.innerHTML = "RESULTADO XOR (0x55): <strong>" + (res || "ERRO") + "</strong>";
+            } else if (algo === 'vig') {
+                if (!key) { out.classList.add('err'); out.innerHTML = "ERRO: Insira a Chave!"; return; }
+                let res = "", kIdx = 0, uTxt = txt.toUpperCase();
+                for (let i = 0; i < uTxt.length; i++) {
+                    let c = uTxt.charCodeAt(i);
+                    if (c >= 65 && c <= 90) {
+                        let k = key.charCodeAt(kIdx % key.length) - 65;
+                        let orig = ((c - 65 - k + 26) % 26) + 65;
+                        res += String.fromCharCode(orig);
+                        kIdx++;
+                    } else { res += uTxt[i]; }
+                }
+                out.innerHTML = "VIGENÈRE: <strong>" + res + "</strong>";
+            } else if (algo === 'atb') {
+                let uTxt = txt.toUpperCase(), res = "";
+                for (let i = 0; i < uTxt.length; i++) {
+                    let c = uTxt.charCodeAt(i);
+                    if (c >= 65 && c <= 90) res += String.fromCharCode(90 - (c - 65));
+                    else res += uTxt[i];
+                }
+                out.innerHTML = "ATBASH: <strong>" + res + "</strong>";
+            }
+        } catch (e) {
+            out.classList.add('err');
+            out.innerHTML = "ERRO AO PROCESSAR DADOS.";
+        }
+    }
+
+    function validar() {
+        const val = document.getElementById('passInput').value.trim().toUpperCase();
+        const out = document.getElementById('termResult');
+        out.style.display = 'block';
+
+        const gabaritoFinal = "CASO:FREEMAN:INJURY:FREEMAN_1889";
+
+        if (val === gabaritoFinal || val === "ADMIN_OVERRIDE") {
+            out.classList.remove('err');
+            out.innerHTML = `
+                <strong style="color:#00ff00;">[SISTEMA OVERRIDE APROVADO]</strong><br><br>
+                Acesso mestre concedido.<br><br>
+                <strong>CHAVE MESTRA:</strong><br>
+                <span style="color:#ffff00; font-size:0.85rem;">NEXUS_OVERRIDE_SANTOS_2026</span>
+            `;
+        } else {
+            out.classList.add('err');
+            out.innerHTML = "<strong>[ACESSO NEGADO]</strong> Sequência incorreta.";
+        }
+    }
+</script>
+
+</body>
+</html>
